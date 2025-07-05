@@ -1,14 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
-import { User } from "@/types";
-
-interface AuthContextType {
-  user: User | null;
-  login: (user: User) => void;
-  logout: () => void;
-  loading: boolean;
-}
+import { AuthContextType, User } from "@/types";
 
 const AuthContext = createContext<AuthContextType | null>(null);
 

@@ -1,0 +1,15 @@
+.header {
+  color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0px;
+  background: black;
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  button {
+    width: auto;
+  }
+}

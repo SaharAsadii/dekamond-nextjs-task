@@ -1,17 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { AuthProvider } from "@/context/auth-context";
-
+import { Footer, Header } from "@/components";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const iranSansWeb = localFont({
+  src: [
+    {
+      path: "../public/fonts/IRANSansWeb(FaNum).woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/IRANSansWeb(FaNum).woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/IRANSansWeb(FaNum).ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-iran-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,8 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <AuthProvider>{children}</AuthProvider>
+      <body className={iranSansWeb.variable}>
+        <AuthProvider>
+          <Header />
+          {children}
+        </AuthProvider>
+        <Footer />
       </body>
     </html>
   );
