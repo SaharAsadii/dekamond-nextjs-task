@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import { useAuth } from "@/context/auth-context";
+import { Button } from "../button";
 
 export const UserStatus = () => {
   const { user } = useAuth();
   return (
     <div>
-      <Link href="/auth">{user ? "Dashboard" : "Login"}</Link>
+      <Button>
+        <Link href={`/${user ? "dashboard" : "auth"}`}>
+          {user ? "Dashboard" : "Login"}
+        </Link>
+      </Button>
     </div>
   );
 };

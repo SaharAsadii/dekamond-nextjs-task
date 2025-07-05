@@ -11,7 +11,6 @@ export default function Dashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    console.log("Dashboard component mounted", user);
     if (!loading && !user) router.push("/auth");
   }, [user, loading, router]);
 
@@ -19,7 +18,7 @@ export default function Dashboard() {
   if (!user) return null;
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div>
         {user.picture && (
           <Image
@@ -35,6 +34,6 @@ export default function Dashboard() {
         <p>ایمیل: {user.email}</p>
         <p>شماره موبایل: {user.phone}</p>
       </div>
-    </div>
+    </section>
   );
 }

@@ -8,10 +8,20 @@ $primary: #4f46e5;
   border: 1px solid #d1d5db;
   border-radius: $border-radius;
   transition: 0.3s ease;
+  margin-top: 0.4rem;
 
   &:focus {
     border-color: $primary;
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
     outline: none;
   }
+}
+.label {
+  margin-bottom: 1rem;
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  font-size: 12px;
 }

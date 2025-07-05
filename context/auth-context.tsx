@@ -1,13 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
-
-type User = {
-  name: string;
-  email: string;
-  picture?: string; // Optional, in case you want to include a profile picture
-  phone: string; // Optional, in case you want to include a phone number
-};
+import { User } from "@/types";
 
 interface AuthContextType {
   user: User | null;
@@ -21,7 +15,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  console.log("AuthProvider initialized");
+
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) setUser(JSON.parse(savedUser));

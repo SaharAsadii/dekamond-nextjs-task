@@ -8,6 +8,7 @@ import { validatePhone } from "@/utils/validate-phone";
 import { Button, Input } from "@/components";
 import { useFormik } from "formik";
 import { useState } from "react";
+import { API_URL } from "@/constants";
 
 const validationSchema = yup.object({
   phone: yup
@@ -31,7 +32,7 @@ export default function AuthPage() {
     onSubmit: async () => {
       setIsLoading(true);
       try {
-        const res = await fetch("https://randomuser.me/api/?results=1&nat=us");
+        const res = await fetch(API_URL);
         const data = await res.json();
         const userData = data.results[0];
 
@@ -58,7 +59,9 @@ export default function AuthPage() {
     <form className={styles.container} onSubmit={formik.handleSubmit}>
       <h1>ورود</h1>
       <Input
+        type="tel"
         label="شماره موبایل"
+        inputMode="numeric"
         value={phone}
         placeholder="09xxxxxxxxx"
         name="phone"
@@ -72,7 +75,11 @@ export default function AuthPage() {
         }}
       />
 
-      <Button type="submit" loading={isLoading}>
+      <Button
+        type="submit"
+        loading={isLoading}
+        disabled={isLoading || !formik.isValid}
+      >
         ورود
       </Button>
     </form>
