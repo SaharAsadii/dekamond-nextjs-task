@@ -1,0 +1,17 @@
+$border-radius: 0.5rem;
+$primary: #4f46e5;
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: $border-radius;
+  transition: 0.3s ease;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    outline: none;
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: #454444;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    border-radius: 100%;
+    margin-left: 12px;
+  }
+
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+}
